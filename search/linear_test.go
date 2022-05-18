@@ -2,12 +2,18 @@ package search
 
 import "testing"
 
-func Test(t *testing.T) {
-	if !linearSearch([]int{1, 2, 3}, 2) {
+func TestLinearFound(t *testing.T) {
+	index, error := linearSearch([]int{1, 2, 3}, 2)
+
+	if index != 1 || error != nil {
 		t.Error()
 	}
+}
 
-	if linearSearch([]int{1, 2, 3}, 4) {
+func TestLinearNotFound(t *testing.T) {
+	index, error := linearSearch([]int{1, 2, 3}, 4)
+
+	if index != -1 || error == nil {
 		t.Error()
 	}
 }

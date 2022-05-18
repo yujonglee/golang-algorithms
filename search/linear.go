@@ -1,11 +1,13 @@
 package search
 
-func linearSearch(items []int, key int) bool {
-	for _, item := range items {
+import "errors"
+
+func linearSearch(items []int, key int) (int, error) {
+	for index, item := range items {
 		if item == key {
-			return true
+			return index, nil
 		}
 	}
 
-	return false
+	return -1, errors.New("NOT FOUND")
 }
